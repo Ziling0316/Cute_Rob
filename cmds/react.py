@@ -3,8 +3,7 @@ from discord.ext import commands
 from core.classes import Cog_Extension
 import random
 import json
-
-with open('setting.json','r', encoding='utf8') as jfile:
+with open("setting.json", "r", encoding = "utf8")as jfile:
     jdata = json.load(jfile)
 
 class React(Cog_Extension):
@@ -16,10 +15,10 @@ class React(Cog_Extension):
         choose = [1, 2]
         random_int = random.choice(choose)
         if random_int == 1:
-            pic = discord.File('C:\\Users\\jolin\\OneDrive\\桌面\\Cute_Rob\\picture.png')
+            pic = discord.File(jdata["Picture_1"])
             await ctx.send(file = pic)
         else:
-            pic = discord.File('C:\\Users\\jolin\\OneDrive\\桌面\\Cute_Rob\\picture2.png')
+            pic = discord.File(jdata["Picture_2"])
             await ctx.send(file = pic)
     @commands.command()
     async def 抽籤(self, ctx):
